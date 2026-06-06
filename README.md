@@ -7,14 +7,22 @@ Live at **[strangetrip.app](https://strangetrip.app)**
 
 ## What it does
 
-1. **Login** — Spotify OAuth 2.0 PKCE (no backend, tokens stored in localStorage)
-2. **Browse** — Home page shows festival day cards; click a day to see its lineup
-3. **Select** — Expand an artist to load their top 10 tracks, check what you want
-4. **Create** — Name the playlist and click "Create Playlist" → appears in Spotify instantly
+1. **Land** — Psychedelic splash screen with Enter button
+2. **Login** — Spotify OAuth 2.0 PKCE (no backend, tokens stored in localStorage)
+3. **Filter** — Festival filter pills let you narrow to a single festival
+4. **Browse** — Home page shows festival day cards; click a day to see its lineup
+5. **Select** — Expand an artist to load their top 10 tracks, check what you want
+6. **Create** — Name the playlist and click "Create Playlist" → appears in Spotify instantly
 
 ---
 
 ## Current festivals
+
+- **Bonnaroo 2026** — 4 days (Jun 11–14), Manchester TN
+  - Day 1: Skrillex & Four Tet
+  - Day 2: The Strokes & Major Lazer
+  - Day 3: RÜFÜS DU SOL & Alabama Shakes
+  - Day 4: Noah Kahan & Kesha
 
 - **Bourbon & Beyond 2026** — 4 days (Sep 24–27), Louisville KY
   - Day 1: Foo Fighters & Queens of the Stone Age
@@ -74,12 +82,13 @@ FestivalApp/
 ├── .env                         ← Spotify Client ID (not committed)
 ├── .gitignore
 ├── public/
-│   └── _redirects               ← SPA catch-all for Cloudflare Pages
+│   ├── _redirects               ← SPA catch-all for Cloudflare Pages
+│   └── strangetrip.png          ← masthead / landing page image
 ├── index.html
 ├── package.json
 ├── vite.config.js
 └── src/
-    ├── App.jsx                  ← root component, home vs day view navigation
+    ├── App.jsx                  ← root component, landing → login → home → day view
     ├── data/
     │   └── artists.js           ← festival lineup data (add new festivals here)
     ├── auth/
@@ -92,8 +101,10 @@ FestivalApp/
     │   ├── useArtistTracks.js   ← lazy per-artist track fetching
     │   └── usePlaylistBuilder.js ← track selection, playlist build flow
     └── components/
+        ├── LandingPage.jsx      ← splash screen with Enter button
+        ├── Masthead.jsx         ← strangetrip.png header used on home page
         ├── LoginScreen.jsx
-        ├── FestivalHome.jsx     ← home page with festival day cards
+        ├── FestivalHome.jsx     ← festival filter pills + day cards
         ├── Header.jsx           ← back button, festival name, logout
         ├── ArtistList.jsx
         ├── ArtistRow.jsx

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { FESTIVAL_DAYS } from '../data/artists.js'
+import { Masthead } from './Masthead.jsx'
 
 function buildFestivalMeta(days) {
   const first = days[0].date.split(', ')[1]   // "June 11"
@@ -35,10 +36,7 @@ export function FestivalHome({ onSelectDay }) {
 
   return (
     <div className="min-h-screen bg-gray-900 flex flex-col">
-      <div className="text-center pt-12 pb-6 px-4">
-        <h1 className="text-4xl font-bold text-white">Festival Playlist Builder</h1>
-        <p className="text-gray-400 mt-3 text-lg">Pick a day. Build your playlist.</p>
-      </div>
+      <Masthead />
 
       <div className="flex flex-wrap gap-2 justify-center px-4 pb-8">
         {filters.map(({ key, label }) => (

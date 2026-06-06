@@ -3,6 +3,7 @@ import { useAuth } from './hooks/useAuth.js'
 import { useArtistTracks } from './hooks/useArtistTracks.js'
 import { usePlaylistBuilder } from './hooks/usePlaylistBuilder.js'
 import { LoginScreen } from './components/LoginScreen.jsx'
+import { LandingPage } from './components/LandingPage.jsx'
 import { FestivalHome } from './components/FestivalHome.jsx'
 import { Header } from './components/Header.jsx'
 import { ArtistList } from './components/ArtistList.jsx'
@@ -27,7 +28,12 @@ export default function App() {
     resetBuild,
   } = usePlaylistBuilder()
 
+  const [showLanding, setShowLanding] = useState(true)
   const [selectedDay, setSelectedDay] = useState(null)
+
+  if (showLanding) {
+    return <LandingPage onEnter={() => setShowLanding(false)} />
+  }
 
   if (status === 'loading') {
     return (
