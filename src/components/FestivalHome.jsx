@@ -1,24 +1,67 @@
+import { useState } from 'react'
 import { FESTIVAL_DAYS } from '../data/artists.js'
 
+function buildFestivalMeta(days) {
+  const first = days[0].date.split(', ')[1]   // "June 11"
+  const last = days[days.length - 1].date.split(', ')[1]  // "June 14"
+  const [month, firstDay] = first.split(' ')
+  const lastDay = last.split(' ')[1]
+  return `${month} ${firstDay}–${lastDay}`
+}
+
 export function FestivalHome({ onSelectDay }) {
+  const [activeFilter, setActiveFilter] = useState('all')
+
   const groups = FESTIVAL_DAYS.reduce((acc, day) => {
     const key = `${day.festival} ${day.year}`
-    if (!acc[key]) acc[key] = []
-    acc[key].push(day)
+    if (!acc[key]) {
+      acc[key] = { festival: day.festival, year: day.year, days: [] }
+    }
+    acc[key].days.push(day)
     return acc
   }, {})
 
+  const filters = [
+    { key: 'all', label: 'All' },
+    ...Object.entries(groups).map(([key, { festival, year, days }]) => ({
+      key,
+      label: `${festival}  ·  ${buildFestivalMeta(days)}, ${year}`,
+    })),
+  ]
+
+  const visibleGroups = Object.entries(groups).filter(
+    ([key]) => activeFilter === 'all' || key === activeFilter
+  )
+
   return (
     <div className="min-h-screen bg-gray-900 flex flex-col">
-      <div className="text-center pt-12 pb-8 px-4">
+      <div className="text-center pt-12 pb-6 px-4">
         <h1 className="text-4xl font-bold text-white">Festival Playlist Builder</h1>
         <p className="text-gray-400 mt-3 text-lg">Pick a day. Build your playlist.</p>
       </div>
 
+      <div className="flex flex-wrap gap-2 justify-center px-4 pb-8">
+        {filters.map(({ key, label }) => (
+          <button
+            key={key}
+            onClick={() => setActiveFilter(key)}
+            className={`px-3 py-0.5 rounded-full text-xs font-medium transition-colors border ${
+              activeFilter === key
+                ? 'bg-amber-500 border-amber-500 text-gray-900'
+                : 'bg-transparent border-amber-700/50 text-amber-400 hover:border-amber-500 hover:text-amber-300'
+            }`}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
+
       <div className="flex-1 px-4 pb-12 space-y-10 max-w-2xl mx-auto w-full">
-        {Object.entries(groups).map(([festivalName, days]) => (
-          <div key={festivalName}>
-            <h2 className="text-amber-400 font-bold text-xl mb-4 text-center">{festivalName}</h2>
+        {visibleGroups.map(([festivalKey, { festival, year, days }]) => (
+          <div key={festivalKey}>
+            <h2 className="text-amber-400 font-bold text-xl mb-4 text-center">
+              {festival} {year}
+            </h2>
             <div className="grid grid-cols-2 gap-4">
               {days.map(day => (
                 <button
@@ -29,7 +72,8 @@ export function FestivalHome({ onSelectDay }) {
                   <div className="text-amber-400 font-bold text-xl group-hover:text-amber-300 transition-colors">
                     {day.label}
                   </div>
-                  <div className="text-gray-400 text-xs mt-1">{day.date}</div>
+                  <div className="text-amber-600/70 text-xs font-medium">{day.festival}</div>
+                  <div className="text-gray-400 text-xs mt-0.5">{day.date}</div>
                   <div className="text-white font-medium text-sm mt-3 leading-snug">
                     {day.headliners}
                   </div>

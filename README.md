@@ -1,41 +1,69 @@
-# Festival Playlist Builder
+# Strange Trip — Festival Playlist Builder
 
-A browser-only React + Vite app for **Lovely Petal Festival (Sep 25–26, 2026)**.  
-Log in with Spotify, browse artists by day, pick tracks, and create a playlist in one click.
-
----
-
-## Status: Complete — ready to run
-
-All source files are written. Dependencies are installed (`node_modules/` exists).  
-The `.env` file already contains the Spotify Client ID.
+A browser-only React + Vite app for building Spotify playlists around music festival lineups.  
+Live at **[strangetrip.app](https://strangetrip.app)**
 
 ---
 
-## To start the dev server
+## What it does
 
-Open a terminal and run:
+1. **Login** — Spotify OAuth 2.0 PKCE (no backend, tokens stored in localStorage)
+2. **Browse** — Home page shows festival day cards; click a day to see its lineup
+3. **Select** — Expand an artist to load their top 10 tracks, check what you want
+4. **Create** — Name the playlist and click "Create Playlist" → appears in Spotify instantly
+
+---
+
+## Current festivals
+
+- **Bourbon & Beyond 2026** — 4 days (Sep 24–27), Louisville KY
+  - Day 1: Foo Fighters & Queens of the Stone Age
+  - Day 2: Mumford & Sons & Kacey Musgraves
+  - Day 3: Chris Stapleton & The Red Clay Strays
+  - Day 4: Dave Matthews Band & Hootie & The Blowfish
+
+---
+
+## Local development
 
 ```bash
 cd ~/Documents/2026/FestivalApp
 npm run dev
 ```
 
-Then open **`http://127.0.0.1:5173`** in your browser (not `localhost` — Spotify requires the exact redirect URI).
+Open **`http://127.0.0.1:5173`** (not `localhost` — Spotify requires the exact redirect URI).
 
-> **Note:** Must be run from your own terminal app. Claude Code's shell can't execute the dev server from the Documents folder due to macOS privacy restrictions.
+Create a `.env` file with:
+```
+VITE_SPOTIFY_CLIENT_ID=your_client_id_here
+```
+
+---
+
+## Deployment
+
+Hosted on **Cloudflare Pages**, auto-deploys from `main` branch on GitHub.
+
+Build settings:
+- Framework: React (Vite)
+- Build command: `npm run build`
+- Output directory: `dist`
+- Environment variable: `VITE_SPOTIFY_CLIENT_ID`
+
+SPA routing handled by `public/_redirects` (`/* /index.html 200`).
 
 ---
 
 ## Spotify Developer Dashboard
 
-In [developer.spotify.com](https://developer.spotify.com/dashboard), your app must have this exact Redirect URI:
-
+Redirect URIs configured:
 ```
-http://127.0.0.1:5173/callback
+http://127.0.0.1:5173/callback        ← local dev
+https://strangetrip.app/callback      ← production
+https://festival-playlist-builder.pages.dev/callback  ← backup
 ```
 
-Scopes used: `playlist-modify-public`, `playlist-modify-private`, `user-read-private`
+Scopes: `playlist-modify-public`, `playlist-modify-private`, `user-read-private`
 
 ---
 
@@ -43,53 +71,63 @@ Scopes used: `playlist-modify-public`, `playlist-modify-private`, `user-read-pri
 
 ```
 FestivalApp/
-├── .env                         ← Spotify Client ID (already set)
-├── .gitignore                   ← excludes .env and node_modules
+├── .env                         ← Spotify Client ID (not committed)
+├── .gitignore
+├── public/
+│   └── _redirects               ← SPA catch-all for Cloudflare Pages
 ├── index.html
 ├── package.json
-├── vite.config.js               ← host: 127.0.0.1, port: 5173, Tailwind v4
+├── vite.config.js
 └── src/
-    ├── main.jsx
-    ├── App.jsx                  ← root component, composes all hooks
-    ├── index.css                ← Tailwind v4 import
+    ├── App.jsx                  ← root component, home vs day view navigation
     ├── data/
-    │   └── artists.js           ← 27 Friday + 26 Saturday artists (hardcoded)
+    │   └── artists.js           ← festival lineup data (add new festivals here)
     ├── auth/
-    │   ├── pkce.js              ← PKCE crypto: verifier, challenge, auth URL
-    │   └── spotify-auth.js      ← token exchange, refresh, localStorage storage
+    │   ├── pkce.js              ← PKCE crypto, dynamic redirect URI
+    │   └── spotify-auth.js      ← token exchange, refresh, localStorage
     ├── api/
-    │   └── spotify.js           ← Spotify Web API: search, top tracks, create/add playlist
+    │   └── spotify.js           ← Spotify API: top tracks, search fallback, create/add playlist
     ├── hooks/
-    │   ├── useAuth.js           ← handles /callback + session persistence
-    │   ├── useArtistTracks.js   ← lazy per-artist track fetching, keyed by day+artist
-    │   └── usePlaylistBuilder.js ← selected tracks Set, build flow, status
+    │   ├── useAuth.js           ← /callback handling + session persistence
+    │   ├── useArtistTracks.js   ← lazy per-artist track fetching
+    │   └── usePlaylistBuilder.js ← track selection, playlist build flow
     └── components/
-        ├── LoginScreen.jsx      ← full-page Spotify connect screen
-        ├── Header.jsx           ← festival name, user, track count, logout
-        ├── DayTabs.jsx          ← Friday / Saturday tab switcher
-        ├── ArtistList.jsx       ← renders ArtistRow list, manages expanded state
-        ├── ArtistRow.jsx        ← expandable row, Select All, lazy fetch trigger
-        ├── TrackList.jsx        ← list of TrackItem
-        ├── TrackItem.jsx        ← checkbox + album art + name + duration
-        └── PlaylistPanel.jsx    ← sticky bottom bar: name input + Create button
+        ├── LoginScreen.jsx
+        ├── FestivalHome.jsx     ← home page with festival day cards
+        ├── Header.jsx           ← back button, festival name, logout
+        ├── ArtistList.jsx
+        ├── ArtistRow.jsx
+        ├── TrackList.jsx
+        ├── TrackItem.jsx
+        └── PlaylistPanel.jsx    ← sticky bottom bar: name + create button
 ```
 
 ---
 
-## How the app works
+## Adding a new festival
 
-1. **Login** — Spotify OAuth 2.0 PKCE (no backend, tokens stored in localStorage)
-2. **Browse** — Friday/Saturday tabs; click an artist to expand and load their top 10 tracks
-3. **Select** — Check individual tracks or use "Select All" per artist
-4. **Create** — Enter a playlist name, click "Create Playlist" → opens in Spotify
+Edit `src/data/artists.js` and add a new entry to the `FESTIVAL_DAYS` array:
+
+```js
+{
+  id: 'festival-name-year-day1',
+  festival: 'Festival Name',
+  year: 2026,
+  label: 'Day 1',
+  date: 'Friday, October 1',
+  headliners: 'Headliner One & Headliner Two',
+  artists: ['Artist Name', ...],
+}
+```
+
+Push to GitHub — Cloudflare auto-deploys.
 
 ---
 
 ## Key technical notes
 
-- **No React Router** — `/callback` detection is done via `window.location.pathname` in `useAuth`
-- **Token refresh** — `getValidToken()` auto-refreshes before expiry; all API calls go through it
-- **Artist not found** — gracefully shows "Artist not found on Spotify" without blocking others
-- **Yachtley Crew** appears on both days and has independent expand/select state per day
-- **Track batching** — playlist adds are chunked to 100 URIs per request (Spotify API limit)
-- **Rate limiting** — 429 responses are handled with `Retry-After` delay and retry
+- **No React Router** — `/callback` detected via `window.location.pathname` in `useAuth`
+- **Dynamic redirect URI** — uses `window.location.origin` so it works on any domain
+- **Top-tracks fallback** — Spotify dev mode blocks `/top-tracks`; app falls back to search API
+- **Track batching** — playlist adds chunked to 100 URIs per request (Spotify limit)
+- **Token refresh** — `getValidToken()` auto-refreshes before expiry
