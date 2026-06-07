@@ -52,20 +52,12 @@ function toTrack(t) {
   }
 }
 
-export async function getArtistTopTracks(artistId, artistName) {
-  try {
-    const data = await apiFetch(`/artists/${artistId}/top-tracks?market=from_token`)
-    return (data.tracks || []).slice(0, 10).map(toTrack)
-  } catch (err) {
-    if (err.message !== 'Forbidden') throw err
-  }
-
-  // Fallback: top-tracks endpoint is restricted for this app tier — use search instead
+export async function getArtistTopTracks(artistId, artistName, limit = 10) {
   const params = new URLSearchParams({ q: artistName, type: 'track' })
   const data = await apiFetch(`/search?${params}`)
   return (data.tracks?.items || [])
     .filter(t => t.artists.some(a => a.id === artistId))
-    .slice(0, 10)
+    .slice(0, limit)
     .map(toTrack)
 }
 

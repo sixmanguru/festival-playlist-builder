@@ -19,7 +19,7 @@ export function ArtistRow({
   function handleToggle() {
     onToggleExpand(artistName)
     if (status === 'idle') {
-      onFetchTracks(day, artistName)
+      onFetchTracks()
     }
   }
 
