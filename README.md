@@ -139,7 +139,9 @@ Push to GitHub — Cloudflare auto-deploys.
 
 - **No React Router** — `/callback` detected via `window.location.pathname` in `useAuth`
 - **Dynamic redirect URI** — uses `window.location.origin` so it works on any domain
-- **Track fetching** — uses `GET /search?q={artist}&type=track&limit={n}` (max 10); `/top-tracks` endpoint is deprecated for this app tier
+- **Track fetching** — uses `GET /search?q={artist}&type=track&limit=10` (hard-coded max); `/top-tracks` endpoint is deprecated for this app tier
+- **Track deduplication** — results are deduped by normalized track name so the same song doesn't appear twice across album editions
+- **Featured artist filtering** — tracks containing "feat", "ft", or "with" in the title are excluded unless the searched artist is the primary artist (`artists[0]`); true collaborations with no such keyword are kept
 - **Load All** — pre-fetches all artists in batches of 4 with 250ms delay to avoid rate limiting
 - **Track batching** — playlist adds chunked to 100 URIs per request (Spotify limit)
 - **Token refresh** — `getValidToken()` auto-refreshes before expiry

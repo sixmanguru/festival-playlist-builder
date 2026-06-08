@@ -53,10 +53,21 @@ function toTrack(t) {
 }
 
 export async function getArtistTopTracks(artistId, artistName, limit = 10) {
-  const params = new URLSearchParams({ q: artistName, type: 'track' })
+  const params = new URLSearchParams({ q: artistName, type: 'track', limit: 10 })
   const data = await apiFetch(`/search?${params}`)
+  const seen = new Set()
   return (data.tracks?.items || [])
-    .filter(t => t.artists.some(a => a.id === artistId))
+    .filter(t => {
+      const isFeatTrack = /\bfeat\b|\bft\b|\bwith\b/i.test(t.name)
+      if (isFeatTrack) return t.artists[0]?.id === artistId
+      return t.artists.some(a => a.id === artistId)
+    })
+    .filter(t => {
+      const key = t.name.toLowerCase().trim()
+      if (seen.has(key)) return false
+      seen.add(key)
+      return true
+    })
     .slice(0, limit)
     .map(toTrack)
 }

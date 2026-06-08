@@ -36,6 +36,7 @@ export function useAuth() {
           setUser(u)
           setStatus('authenticated')
         } catch {
+          doLogout()
           setStatus('unauthenticated')
         }
         return
