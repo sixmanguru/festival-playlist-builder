@@ -11,7 +11,7 @@ Live at **[strangetrip.app](https://strangetrip.app)**
 2. **Login** — Spotify OAuth 2.0 PKCE (no backend, tokens stored in localStorage)
 3. **Filter** — Festival filter pills let you narrow to a single festival
 4. **Browse** — Home page shows festival day cards; click a day to see its lineup
-5. **Select** — Expand an artist to load their top 10 tracks, check what you want
+5. **Select** — Expand an artist to load tracks (3–10 per artist), or use Load All to pre-fetch everyone at once
 6. **Create** — Name the playlist and click "Create Playlist" → appears in Spotify instantly
 
 ---
@@ -95,7 +95,7 @@ FestivalApp/
     │   ├── pkce.js              ← PKCE crypto, dynamic redirect URI
     │   └── spotify-auth.js      ← token exchange, refresh, localStorage
     ├── api/
-    │   └── spotify.js           ← Spotify API: top tracks, search fallback, create/add playlist
+    │   └── spotify.js           ← Spotify API: artist search, track search, create/add playlist
     ├── hooks/
     │   ├── useAuth.js           ← /callback handling + session persistence
     │   ├── useArtistTracks.js   ← lazy per-artist track fetching
@@ -106,7 +106,7 @@ FestivalApp/
         ├── LoginScreen.jsx
         ├── FestivalHome.jsx     ← festival filter pills + day cards
         ├── Header.jsx           ← back button, festival name, logout
-        ├── ArtistList.jsx
+        ├── ArtistList.jsx       ← instructions, track limit dropdown, Load All button
         ├── ArtistRow.jsx
         ├── TrackList.jsx
         ├── TrackItem.jsx
@@ -139,6 +139,7 @@ Push to GitHub — Cloudflare auto-deploys.
 
 - **No React Router** — `/callback` detected via `window.location.pathname` in `useAuth`
 - **Dynamic redirect URI** — uses `window.location.origin` so it works on any domain
-- **Top-tracks fallback** — Spotify dev mode blocks `/top-tracks`; app falls back to search API
+- **Track fetching** — uses `GET /search?q={artist}&type=track&limit={n}` (max 10); `/top-tracks` endpoint is deprecated for this app tier
+- **Load All** — pre-fetches all artists in batches of 4 with 250ms delay to avoid rate limiting
 - **Track batching** — playlist adds chunked to 100 URIs per request (Spotify limit)
 - **Token refresh** — `getValidToken()` auto-refreshes before expiry
