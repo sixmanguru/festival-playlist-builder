@@ -3,10 +3,11 @@ import { FESTIVAL_DAYS } from '../data/artists.js'
 import { Masthead } from './Masthead.jsx'
 
 function buildFestivalMeta(days) {
-  const first = days[0].date.split(', ')[1]   // "June 11"
-  const last = days[days.length - 1].date.split(', ')[1]  // "June 14"
+  const first = days[0].date.split(', ')[1]
+  if (!first) return days[0].date
+  const last = days[days.length - 1].date.split(', ')[1]
   const [month, firstDay] = first.split(' ')
-  const lastDay = last.split(' ')[1]
+  const lastDay = last ? last.split(' ')[1] : firstDay
   return `${month} ${firstDay}–${lastDay}`
 }
 
