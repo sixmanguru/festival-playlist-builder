@@ -1,6 +1,6 @@
 # Strange Trip — Festival Playlist Builder
 
-A browser-only React + Vite app for building Spotify playlists around music festival lineups.  
+A browser-based React + Vite app for building Spotify playlists around music festival lineups.  
 Live at **[strangetrip.app](https://strangetrip.app)**
 
 ---
@@ -11,24 +11,21 @@ Live at **[strangetrip.app](https://strangetrip.app)**
 2. **Login** — Spotify OAuth 2.0 PKCE (no backend, tokens stored in localStorage)
 3. **Filter** — Festival filter pills let you narrow to a single festival
 4. **Browse** — Home page shows festival day cards; click a day to see its lineup
-5. **Select** — Expand an artist to load tracks (3–10 per artist), or use Load All to pre-fetch everyone at once
+5. **Select** — Expand an artist to load tracks, or use **Load All Artists** to pre-fetch everyone at once; once loaded a banner appears to **Select All Tracks** in one click
 6. **Create** — Name the playlist and click "Create Playlist" → appears in Spotify instantly
+7. **Request** — "Don't see your festival?" link opens a form to request a festival be added; requests are emailed via Cloudflare Pages Function + Resend
 
 ---
 
 ## Current festivals
 
+- **Governors Ball 2026** — 3 days (Jun 5–7), New York NY
 - **Bonnaroo 2026** — 4 days (Jun 11–14), Manchester TN
-  - Day 1: Skrillex & Four Tet
-  - Day 2: The Strokes & Major Lazer
-  - Day 3: RÜFÜS DU SOL & Alabama Shakes
-  - Day 4: Noah Kahan & Kesha
-
+- **Telluride Bluegrass Festival 2026** — 4 days (Jun 18–21), Telluride CO
+- **Mosswood Meltdown 2026** — 3 days (Jul 17–19), Oakland CA
+- **Newport Folk Festival 2026** — 3 days (Jul 24–26), Newport RI
+- **Underground Music Showcase 2026** — Jul 24–26, Denver CO
 - **Bourbon & Beyond 2026** — 4 days (Sep 24–27), Louisville KY
-  - Day 1: Foo Fighters & Queens of the Stone Age
-  - Day 2: Mumford & Sons & Kacey Musgraves
-  - Day 3: Chris Stapleton & The Red Clay Strays
-  - Day 4: Dave Matthews Band & Hootie & The Blowfish
 
 ---
 
@@ -56,9 +53,18 @@ Build settings:
 - Framework: React (Vite)
 - Build command: `npm run build`
 - Output directory: `dist`
-- Environment variable: `VITE_SPOTIFY_CLIENT_ID`
+
+Environment variables (set in Cloudflare Pages → Settings → Environment Variables):
+
+| Variable | Notes |
+|---|---|
+| `VITE_SPOTIFY_CLIENT_ID` | Spotify app client ID |
+| `RESEND_API_KEY` | Resend API key — set as **Secret** |
+| `NOTIFY_EMAIL` | Email address to receive festival requests |
 
 SPA routing handled by `public/_redirects` (`/* /index.html 200`).
+
+Pages Functions in `functions/` deploy automatically alongside the site.
 
 ---
 
@@ -84,6 +90,9 @@ FestivalApp/
 ├── public/
 │   ├── _redirects               ← SPA catch-all for Cloudflare Pages
 │   └── strangetrip.png          ← masthead / landing page image
+├── functions/
+│   └── api/
+│       └── request-festival.js  ← Pages Function: receives festival requests, emails via Resend
 ├── index.html
 ├── package.json
 ├── vite.config.js
@@ -104,9 +113,10 @@ FestivalApp/
         ├── LandingPage.jsx      ← splash screen with Enter button
         ├── Masthead.jsx         ← strangetrip.png header used on home page
         ├── LoginScreen.jsx
-        ├── FestivalHome.jsx     ← festival filter pills + day cards
+        ├── FestivalHome.jsx     ← festival filter pills + day cards + request link
+        ├── RequestFestivalModal.jsx ← festival request form (festival, location, notify email)
         ├── Header.jsx           ← back button, festival name, logout
-        ├── ArtistList.jsx       ← instructions, track limit dropdown, Load All button
+        ├── ArtistList.jsx       ← track limit, Load All, Select All Tracks banner
         ├── ArtistRow.jsx
         ├── TrackList.jsx
         ├── TrackItem.jsx
@@ -117,7 +127,7 @@ FestivalApp/
 
 ## Adding a new festival
 
-Edit `src/data/artists.js` and add a new entry to the `FESTIVAL_DAYS` array:
+Edit `src/data/artists.js` and add a new entry to `FESTIVAL_DAYS`. Keep the array in chronological order.
 
 ```js
 {
@@ -125,7 +135,7 @@ Edit `src/data/artists.js` and add a new entry to the `FESTIVAL_DAYS` array:
   festival: 'Festival Name',
   year: 2026,
   label: 'Day 1',
-  date: 'Friday, October 1',
+  date: 'Friday, October 1',      // use "Weekday, Month Day" format
   headliners: 'Headliner One & Headliner Two',
   artists: ['Artist Name', ...],
 }
@@ -139,9 +149,10 @@ Push to GitHub — Cloudflare auto-deploys.
 
 - **No React Router** — `/callback` detected via `window.location.pathname` in `useAuth`
 - **Dynamic redirect URI** — uses `window.location.origin` so it works on any domain
-- **Track fetching** — uses `GET /search?q={artist}&type=track&limit=10` (hard-coded max); `/top-tracks` endpoint is deprecated for this app tier
+- **Track fetching** — uses `GET /search?q={artist}&type=track` with a configurable max (default 5, up to 10); `/top-tracks` endpoint is deprecated for this app tier
 - **Track deduplication** — results are deduped by normalized track name so the same song doesn't appear twice across album editions
 - **Featured artist filtering** — tracks containing "feat", "ft", or "with" in the title are excluded unless the searched artist is the primary artist (`artists[0]`); true collaborations with no such keyword are kept
-- **Load All** — pre-fetches all artists in batches of 4 with 250ms delay to avoid rate limiting
+- **Load All** — pre-fetches all artists in batches of 4 with 250ms delay to avoid rate limiting; shows a "Select All Tracks" banner when complete
 - **Track batching** — playlist adds chunked to 100 URIs per request (Spotify limit)
 - **Token refresh** — `getValidToken()` auto-refreshes before expiry
+- **Festival requests** — `functions/api/request-festival.js` is a Cloudflare Pages Function; `RESEND_API_KEY` and `NOTIFY_EMAIL` are Pages secrets, never in client code
