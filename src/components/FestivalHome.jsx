@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { FESTIVAL_DAYS } from '../data/artists.js'
 import { Masthead } from './Masthead.jsx'
+import { RequestFestivalModal } from './RequestFestivalModal.jsx'
 
 function buildFestivalMeta(days) {
   const first = days[0].date.split(', ')[1]
@@ -13,6 +14,7 @@ function buildFestivalMeta(days) {
 
 export function FestivalHome({ onSelectDay }) {
   const [activeFilter, setActiveFilter] = useState('all')
+  const [showRequest, setShowRequest] = useState(false)
 
   const groups = FESTIVAL_DAYS.reduce((acc, day) => {
     const key = `${day.festival} ${day.year}`
@@ -54,6 +56,17 @@ export function FestivalHome({ onSelectDay }) {
           </button>
         ))}
       </div>
+
+      <div className="flex justify-center px-4 pb-6">
+        <button
+          onClick={() => setShowRequest(true)}
+          className="text-xs text-amber-600/70 hover:text-amber-400 transition-colors underline underline-offset-2"
+        >
+          Don't see your festival? Request one to be added →
+        </button>
+      </div>
+
+      {showRequest && <RequestFestivalModal onClose={() => setShowRequest(false)} />}
 
       <div className="flex-1 px-4 pb-12 space-y-10 max-w-2xl mx-auto w-full">
         {visibleGroups.map(([festivalKey, { festival, year, days }]) => (
