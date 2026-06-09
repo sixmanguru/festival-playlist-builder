@@ -14,13 +14,21 @@ export function ArtistList({
   allSelectedForArtist,
 }) {
   const [expanded, setExpanded] = useState(new Set())
-  const [limit, setLimit] = useState(10) // max supported by search API
+  const [limit, setLimit] = useState(5)
 
   const fetch = (name) => fetchTracks(day, name, limit)
   const getData = (name) => getArtistData(day, name, limit)
 
   const loadingCount = artists.filter(n => getData(n).status === 'loading').length
   const isLoading = loadingCount > 0
+  const allLoaded =
+    !isLoading &&
+    artists.length > 0 &&
+    artists.every(n => {
+      const s = getData(n).status
+      return s === 'loaded' || s === 'not_found' || s === 'error'
+    })
+  const anyDone = artists.some(n => getData(n).status === 'loaded')
 
   function toggleExpand(artistName) {
     setExpanded(prev => {
@@ -28,6 +36,13 @@ export function ArtistList({
       if (next.has(artistName)) next.delete(artistName)
       else next.add(artistName)
       return next
+    })
+  }
+
+  function selectAllTracks() {
+    artists.forEach(name => {
+      const { tracks } = getData(name)
+      if (tracks?.length) onSelectAll(tracks)
     })
   }
 
@@ -57,7 +72,7 @@ export function ArtistList({
       {/* Controls */}
       <div className="flex items-center justify-between px-4 py-2.5 bg-gray-800/20 border-b border-gray-700/50">
         <div className="flex items-center gap-2">
-          <label className="text-xs text-gray-500">Tracks per artist</label>
+          <label className="text-xs text-gray-500">Max tracks per artist</label>
           <select
             value={limit}
             onChange={e => setLimit(Number(e.target.value))}
@@ -78,6 +93,21 @@ export function ArtistList({
           {isLoading ? `Loading (${loadingCount})` : 'Load All Artists'}
         </button>
       </div>
+
+      {/* Select-all prompt */}
+      {allLoaded && anyDone && (
+        <div className="flex items-center justify-between gap-3 px-4 py-2.5 bg-amber-900/20 border-b border-amber-700/20">
+          <p className="text-amber-300/80 text-sm">
+            All artists loaded — select all tracks to start, then refine your picks.
+          </p>
+          <button
+            onClick={selectAllTracks}
+            className="flex-shrink-0 text-xs font-medium px-3 py-1.5 rounded-lg bg-amber-600/20 border border-amber-600/40 text-amber-400 hover:bg-amber-600/30 transition-colors"
+          >
+            Select All Tracks
+          </button>
+        </div>
+      )}
 
       {/* Artist rows */}
       {artists.map(artistName => {
