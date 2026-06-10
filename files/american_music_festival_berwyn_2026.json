@@ -1,0 +1,79 @@
+{
+  "festival": "Fitzgerald's American Music Festival",
+  "slug": "american-music-festival-berwyn-2026",
+  "venue": "FitzGerald's Nightclub",
+  "city": "Berwyn, IL",
+  "dates": "July 2–5, 2026",
+  "status": "upcoming",
+  "genres": ["roots", "americana", "blues", "soul", "rock", "funk", "zydeco"],
+  "website": "https://www.fitzgeraldsnightclub.com",
+  "notes": "43rd annual edition. One of America's longest-running music festivals (est. 1981, first act was Stevie Ray Vaughan). 4-day July 4th weekend. Gates 4:00 PM Thu/Fri, 2:30 PM Sat/Sun. All ages. No camping.",
+  "days": [
+    {
+      "date": "2026-07-02",
+      "label": "Thursday, July 2",
+      "artists": [
+        { "name": "The Heavy Heavy", "headliner": true },
+        { "name": "River Shook" },
+        { "name": "Greyhounds" },
+        { "name": "Hollyy" },
+        { "name": "Nicholas Tremulis & The Prodigal 9" },
+        { "name": "Leon Timbo" },
+        { "name": "Free Range" },
+        { "name": "Darryl Rahn" },
+        { "name": "Aaron Kelly Band" },
+        { "name": "The Chicago Salty Dogs" }
+      ]
+    },
+    {
+      "date": "2026-07-03",
+      "label": "Friday, July 3",
+      "artists": [
+        { "name": "Spin Doctors", "headliner": true },
+        { "name": "Southern Avenue", "headliner": true },
+        { "name": "Les Greene & The Swayzees" },
+        { "name": "Michael McDermott" },
+        { "name": "Dos Santos" },
+        { "name": "Mud Morganfield" },
+        { "name": "Bumpus" },
+        { "name": "Jeremy Short" },
+        { "name": "Lonesome Joy" },
+        { "name": "Colby T. Helms" },
+        { "name": "Union Avenue" },
+        { "name": "Henry Carpender" }
+      ]
+    },
+    {
+      "date": "2026-07-04",
+      "label": "Saturday, July 4",
+      "artists": [
+        { "name": "Dave Alvin & Jimmie Dale Gilmore and The Guilty Ones", "headliner": true },
+        { "name": "American Aquarium" },
+        { "name": "LowDown Brass Band" },
+        { "name": "The Deslondes" },
+        { "name": "Charlie Halloran and the Tropicales" },
+        { "name": "The Minks" },
+        { "name": "Nikki Hill" },
+        { "name": "Nathan Graham" },
+        { "name": "Jonathan Scales Fourchestra" },
+        { "name": "The Menards" },
+        { "name": "Soul Message Band" },
+        { "name": "Quin Kirchner" }
+      ]
+    },
+    {
+      "date": "2026-07-05",
+      "label": "Sunday, July 5",
+      "artists": [
+        { "name": "Neal Francis", "headliner": true },
+        { "name": "C.J. Chenier and the Red Hot Louisiana Band" },
+        { "name": "DeeOhGee" },
+        { "name": "Charlie Parr" },
+        { "name": "Alicia Blue" },
+        { "name": "Joel Paterson" },
+        { "name": "Chicago Soul Jazz Collective" },
+        { "name": "Fonville x Fribush" }
+      ]
+    }
+  ]
+}

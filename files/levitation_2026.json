@@ -1,0 +1,89 @@
+{
+  "festival": "Levitation",
+  "slug": "levitation-2026",
+  "venue": "Various venues (city-wide)",
+  "city": "Austin, TX",
+  "dates": "September 10–13, 2026",
+  "status": "upcoming",
+  "genres": ["psych rock", "post-punk", "darkwave", "industrial", "experimental", "shoegaze", "doom metal"],
+  "website": "https://levitation.fm",
+  "notes": "Founded by The Black Angels. Returns to full city-wide multi-venue format in 2026. Venues include Stubb's, Mohawk, 29th St Ballroom, Hotel Vegas, Elysium, 13th Floor, Radio/East (new expanded two-stage layout). Festival or single-show tickets available. One Sunday headliner still TBA.",
+  "venues": ["Stubb's", "Mohawk", "29th St Ballroom", "Hotel Vegas", "Elysium", "13th Floor", "Radio/East"],
+  "days": [
+    {
+      "date": "2026-09-10",
+      "label": "Thursday, September 10",
+      "artists": [
+        { "name": "American Football", "headliner": true },
+        { "name": "Angine de Poitrine" },
+        { "name": "Arlo Parks" },
+        { "name": "Tanukichan" },
+        { "name": "Friko" },
+        { "name": "Acopia" },
+        { "name": "Gurriers" },
+        { "name": "Nine Perfect Lives" },
+        { "name": "Mietze Conte" },
+        { "name": "Max Fry" },
+        { "name": "Buzz Kull" },
+        { "name": "Radium Dolls" },
+        { "name": "Kontravoid" }
+      ]
+    },
+    {
+      "date": "2026-09-11",
+      "label": "Friday, September 11",
+      "artists": [
+        { "name": "Bikini Kill", "headliner": true },
+        { "name": "Die Spitz" },
+        { "name": "Gibby Haynes", "note": "Gibby Haynes: Butthole Surfers Mania" },
+        { "name": "The Garden" },
+        { "name": "Sweeping Promises" },
+        { "name": "Melt-Banana" },
+        { "name": "Powerplant" },
+        { "name": "Los Thuthanaka" },
+        { "name": "El Ten Eleven" },
+        { "name": "Evening Elephants" },
+        { "name": "Poppy Jean Crawford" },
+        { "name": "villagerrr" }
+      ]
+    },
+    {
+      "date": "2026-09-12",
+      "label": "Saturday, September 12",
+      "artists": [
+        { "name": "Molchat Doma", "headliner": true },
+        { "name": "TBA", "note": "One additional headliner still to be announced" },
+        { "name": "Peter Hook & The Light" },
+        { "name": "Cabaret Voltaire" },
+        { "name": "Smerz" },
+        { "name": "Automatic" },
+        { "name": "Nitzer Ebb" },
+        { "name": "Man or Astro-Man?" },
+        { "name": "DITZ" },
+        { "name": "Novulent" },
+        { "name": "I Speak Machine" },
+        { "name": "Croz Boyce" },
+        { "name": "Takuya Nakamura" },
+        { "name": "Pearl & The Oysters" },
+        { "name": "ALI" },
+        { "name": "SINE" }
+      ]
+    },
+    {
+      "date": "2026-09-13",
+      "label": "Sunday, September 13",
+      "artists": [
+        { "name": "TBA", "headliner": true, "note": "Sunday headliner still to be announced" },
+        { "name": "Uncle Acid & The Deadbeats" },
+        { "name": "Psychedelic Porn Crumpets" },
+        { "name": "Temples" },
+        { "name": "Primitive Ring", "note": "feat. Charles Moothart, Bert Hoover, Jon Modaff" },
+        { "name": "Monolord" },
+        { "name": "REZN" },
+        { "name": "Earth Tongue" },
+        { "name": "Rehash" },
+        { "name": "Sweeping Promises" }
+      ]
+    }
+  ]
+}

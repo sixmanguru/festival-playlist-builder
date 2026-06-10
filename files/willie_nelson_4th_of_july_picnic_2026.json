@@ -1,0 +1,28 @@
+{
+  "festival": "Willie Nelson's 4th of July Picnic",
+  "slug": "willie-nelson-4th-of-july-picnic-2026",
+  "venue": "Germania Insurance Amphitheater",
+  "city": "Austin, TX",
+  "dates": "July 4, 2026",
+  "status": "upcoming",
+  "genres": ["country", "americana", "bluegrass", "rock", "folk"],
+  "website": "https://williespicnic.com",
+  "notes": "53rd annual edition. Gates open 2:00 PM, music 3:30 PM, 8+ hours with fireworks finale. Part of the 2026 Outlaw Music Festival tour (12-city run). Billy Strings co-headlines Austin date exclusively. Bob Dylan not on 2026 bill (touring independently).",
+  "days": [
+    {
+      "date": "2026-07-04",
+      "label": "Saturday, July 4",
+      "artists": [
+        { "name": "Willie Nelson & Family", "headliner": true },
+        { "name": "Billy Strings", "headliner": true, "note": "Austin-exclusive Outlaw Tour date" },
+        { "name": "Wilco" },
+        { "name": "Sheryl Crow" },
+        { "name": "Lukas Nelson" },
+        { "name": "Margo Price" },
+        { "name": "Rodney Crowell" },
+        { "name": "Stephen Wilson Jr." },
+        { "name": "Lily Meola" }
+      ]
+    }
+  ]
+}
