@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { FESTIVAL_DAYS } from '../data/artists.js'
+import { FESTIVAL_DAYS, FESTIVAL_META } from '../data/artists.js'
 import { Masthead } from './Masthead.jsx'
 import { RequestFestivalModal } from './RequestFestivalModal.jsx'
 
@@ -85,7 +85,9 @@ export function FestivalHome({ onSelectDay }) {
                     {day.label}
                   </div>
                   <div className="text-amber-600/70 text-xs font-medium">{day.festival}</div>
-                  <div className="text-gray-400 text-xs mt-0.5">{day.date}</div>
+                  <div className="text-gray-400 text-xs mt-0.5">
+                    {day.date}{FESTIVAL_META[day.festival]?.city ? ` · ${FESTIVAL_META[day.festival].city}` : ''}
+                  </div>
                   <div className="text-white font-medium text-sm mt-3 leading-snug">
                     {day.headliners}
                   </div>

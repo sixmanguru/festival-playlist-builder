@@ -983,3 +983,21 @@ export const FESTIVAL_DAYS = [
     ],
   },
 ]
+
+export const FESTIVAL_META = {
+  'Governors Ball':               { city: 'Queens, NY' },
+  'Bonnaroo':                     { city: 'Manchester, TN' },
+  'Vans Warped Tour DC':          { city: 'Washington, DC' },
+  'Telluride Bluegrass Festival': { city: 'Telluride, CO' },
+  'Green River Festival':         { city: 'Greenfield, MA' },
+  'Red Wing Roots Music Festival':{ city: 'Mount Solon, VA' },
+  'Summer Jam':                   { city: 'Eau Claire, WI' },
+  'We Belong Here Brooklyn':      { city: 'Brooklyn, NY' },
+  'Zootown Music Festival':       { city: 'Missoula, MT' },
+  'Cotton Fest':                  { city: 'Lubbock, TX' },
+  'Blues From the Top':           { city: 'Winter Park, CO' },
+  'Mosswood Meltdown':            { city: 'Oakland, CA' },
+  'Newport Folk Festival':        { city: 'Newport, RI' },
+  'Underground Music Showcase':   { city: 'Denver, CO' },
+  'Bourbon & Beyond':             { city: 'Louisville, KY' },
+}

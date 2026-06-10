@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useAuth } from './hooks/useAuth.js'
 import { useArtistTracks } from './hooks/useArtistTracks.js'
 import { usePlaylistBuilder } from './hooks/usePlaylistBuilder.js'
+import { FESTIVAL_META } from './data/artists.js'
 import { LoginScreen } from './components/LoginScreen.jsx'
 import { LandingPage } from './components/LandingPage.jsx'
 import { FestivalHome } from './components/FestivalHome.jsx'
@@ -76,7 +77,7 @@ export default function App() {
         onLogout={logout}
         onBack={() => { setSelectedDay(null); resetBuild() }}
         festivalName={selectedDay.festival}
-        dayLabel={`${selectedDay.label} · ${selectedDay.date}`}
+        dayLabel={[selectedDay.label, selectedDay.date, FESTIVAL_META[selectedDay.festival]?.city].filter(Boolean).join(' · ')}
       />
 
       <div className="flex-1 overflow-y-auto pb-28">
