@@ -1,0 +1,75 @@
+{
+  "festival": "Red Wing Roots Music Festival",
+  "slug": "red-wing-roots-2026",
+  "venue": "Natural Chimneys Park",
+  "city": "Mount Solon, VA",
+  "dates": "June 19–21, 2026",
+  "status": "completed",
+  "genres": ["americana", "folk", "roots", "bluegrass", "country", "indie"],
+  "website": "https://www.redwingroots.com",
+  "notes": "13th annual (Red Wing XIII). 50 bands across 5 stages. Hosted by The Steel Wheels, who perform daily. Camping and RV available. Shenandoah Valley backdrop.",
+  "days": [
+    {
+      "date": "2026-06-19",
+      "label": "Friday, June 19",
+      "artists": [
+        { "name": "The Wood Brothers", "headliner": true },
+        { "name": "Big Freedia", "headliner": true },
+        { "name": "The Steel Wheels", "note": "Perform daily" },
+        { "name": "Mo Lowda & The Humble" },
+        { "name": "Seth Mulder and Midnight Run" },
+        { "name": "Anna Tivel" },
+        { "name": "Driftwood" },
+        { "name": "The Hot Seats" },
+        { "name": "Ragged Mountain String Band" },
+        { "name": "Martha Spencer" },
+        { "name": "Debutants" },
+        { "name": "Golden Shoals" },
+        { "name": "Danny Knicely" }
+      ]
+    },
+    {
+      "date": "2026-06-20",
+      "label": "Saturday, June 20",
+      "artists": [
+        { "name": "Lucius", "headliner": true },
+        { "name": "Squirrel Nut Zippers", "headliner": true },
+        { "name": "The Steel Wheels", "note": "Perform daily" },
+        { "name": "James McMurtry" },
+        { "name": "S.G. Goodman" },
+        { "name": "Folk Bitch Trio" },
+        { "name": "Ryan Davis & The Roadhouse Band" },
+        { "name": "Rubblebucket" },
+        { "name": "The Revelers" },
+        { "name": "Tanasi" },
+        { "name": "The Cody Sisters" },
+        { "name": "Jordan Tice" },
+        { "name": "Ramona and The Holy Smokes" },
+        { "name": "The Judy Chops" },
+        { "name": "Hunter Metts" }
+      ]
+    },
+    {
+      "date": "2026-06-21",
+      "label": "Sunday, June 21",
+      "artists": [
+        { "name": "The Beths", "headliner": true },
+        { "name": "Mon Rovîa", "headliner": true },
+        { "name": "Shadowgrass", "headliner": true },
+        { "name": "The Steel Wheels", "note": "Perform daily" },
+        { "name": "Los Mirlos" },
+        { "name": "Angela Autumn" },
+        { "name": "Widowspeak" },
+        { "name": "Palmyra" },
+        { "name": "Cat Clyde" },
+        { "name": "Colby T. Helms" },
+        { "name": "New Planets" },
+        { "name": "John Doyle" },
+        { "name": "Tall Poppy String Band" },
+        { "name": "The Folk Villains" },
+        { "name": "Brother Wallace" },
+        { "name": "Red Wing Academy" }
+      ]
+    }
+  ]
+}

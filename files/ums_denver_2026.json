@@ -1,0 +1,54 @@
+{
+  "festival": "Underground Music Showcase",
+  "slug": "ums-denver-2026",
+  "venue": "RiNo Art District",
+  "city": "Denver, CO",
+  "dates": "July 24–26, 2026",
+  "status": "upcoming",
+  "genres": ["indie", "rock", "hip-hop", "electronic", "DIY", "multi-genre"],
+  "website": "https://undergroundmusicshowcase.com",
+  "notes": "200+ artists across 12+ venues. Per-venue daily schedules typically released mid-July. Day assignments for national acts TBA.",
+  "days": [
+    {
+      "date": "2026-07-24",
+      "label": "Friday, July 24",
+      "artists": []
+    },
+    {
+      "date": "2026-07-25",
+      "label": "Saturday, July 25",
+      "artists": []
+    },
+    {
+      "date": "2026-07-26",
+      "label": "Sunday, July 26",
+      "artists": []
+    }
+  ],
+  "artists_unscheduled": [
+    { "name": "54 Ultra", "headliner": true },
+    { "name": "slenderbodies", "headliner": true },
+    { "name": "Goldie Boutilier", "headliner": true },
+    { "name": "Kaash Paige" },
+    { "name": "Tommy Newport" },
+    { "name": "Charlotte Sands" },
+    { "name": "MAVI" },
+    { "name": "Twin Shadow" },
+    { "name": "King Mala" },
+    { "name": "Deb Never" },
+    { "name": "The Droptines" },
+    { "name": "BAD NERVES" },
+    { "name": "Bluebook", "note": "local" },
+    { "name": "Colfax Speed Queen", "note": "local" },
+    { "name": "DNA Picasso", "note": "local" },
+    { "name": "Izcalli", "note": "local" },
+    { "name": "Milk Blossoms", "note": "local" },
+    { "name": "Rubedo", "note": "local" },
+    { "name": "Boot Gun", "note": "local" },
+    { "name": "Bruha", "note": "local" },
+    { "name": "Cleaner", "note": "local" },
+    { "name": "DESTINO", "note": "local" },
+    { "name": "Covenhoven", "note": "local" },
+    { "name": "Dominique Christina", "note": "local" }
+  ]
+}

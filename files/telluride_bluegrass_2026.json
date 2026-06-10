@@ -1,0 +1,75 @@
+{
+  "festival": "Telluride Bluegrass Festival",
+  "slug": "telluride-bluegrass-2026",
+  "venue": "Town Park",
+  "city": "Telluride, CO",
+  "dates": "June 18–21, 2026",
+  "status": "upcoming",
+  "genres": ["bluegrass", "roots", "acoustic", "folk"],
+  "website": "https://bluegrass.com/telluride",
+  "days": [
+    {
+      "date": "2026-06-18",
+      "label": "Thursday, June 18",
+      "artists": [
+        { "name": "Tedeschi Trucks Band", "headliner": true },
+        { "name": "Watchhouse", "note": "duo set" },
+        { "name": "Telluride House Band", "note": "feat. Sam Bush, Béla Fleck, Jerry Douglas, Edgar Meyer, Stuart Duncan, Chris Thile" },
+        { "name": "AJ Lee & Blue Summit" },
+        { "name": "Peter Rowan Walls of Time Band" },
+        { "name": "Noeline Hofmann" },
+        { "name": "Dallahan" },
+        { "name": "Chris Thile", "note": "opener" }
+      ]
+    },
+    {
+      "date": "2026-06-19",
+      "label": "Friday, June 19",
+      "artists": [
+        { "name": "Greensky Bluegrass", "headliner": true },
+        { "name": "Shakey Graves" },
+        { "name": "Renée Fleming with Béla Fleck", "note": "The Fiddle and the Drum feat. My Bluegrass Heart" },
+        { "name": "Leftover Salmon" },
+        { "name": "Jake Shimabukuro" },
+        { "name": "East Nash Grass" },
+        { "name": "Dom Flemons & The Traveling Wildfires" },
+        { "name": "Rett Madison" }
+      ]
+    },
+    {
+      "date": "2026-06-20",
+      "label": "Saturday, June 20",
+      "artists": [
+        { "name": "Larkin Poe", "headliner": true },
+        { "name": "Sam Bush Band" },
+        { "name": "Maggie Antone" },
+        { "name": "Punch Brothers" },
+        { "name": "Jason Carter & Michael Cleveland" },
+        { "name": "Clay Street Unit" },
+        { "name": "Rachel Sumner & Traveling Light" },
+        { "name": "Band Contest Finals" }
+      ]
+    },
+    {
+      "date": "2026-06-21",
+      "label": "Sunday, June 21",
+      "artists": [
+        { "name": "Gregory Alan Isakov", "headliner": true },
+        { "name": "Flatland Cavalry" },
+        { "name": "The Infamous Stringdusters" },
+        { "name": "Sierra Hull" },
+        { "name": "Boy Golden" },
+        { "name": "Lark, Roman & Meyer" },
+        { "name": "ALASH" }
+      ]
+    }
+  ],
+  "supplemental": {
+    "nightgrass": [
+      { "date": "2026-06-18", "label": "Thursday NightGrass", "artists": ["Greensky Bluegrass", "AJ Lee & Blue Summit", "Dallahan"] },
+      { "date": "2026-06-19", "label": "Friday NightGrass", "artists": ["Clay Street Unit", "Andrew Marlin & Friends", "Jake Shimabukuro"] },
+      { "date": "2026-06-20", "label": "Saturday NightGrass", "artists": ["The Infamous Stringdusters", "Sierra Hull", "Boy Golden"] },
+      { "date": "2026-06-21", "label": "Sunday NightGrass", "artists": ["Punch Brothers"] }
+    ]
+  }
+}

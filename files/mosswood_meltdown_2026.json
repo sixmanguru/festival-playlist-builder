@@ -1,0 +1,48 @@
+{
+  "festival": "Mosswood Meltdown",
+  "slug": "mosswood-meltdown-2026",
+  "venue": "Mosswood Park",
+  "city": "Oakland, CA",
+  "dates": "July 17–19, 2026",
+  "status": "upcoming",
+  "genres": ["punk", "indie", "garage rock", "DIY"],
+  "website": "https://mosswoodmeltdown.com",
+  "host": "John Waters",
+  "days": [
+    {
+      "date": "2026-07-17",
+      "label": "Friday, July 17",
+      "type": "pre-party",
+      "artists": [
+        { "name": "Pavement", "headliner": true },
+        { "name": "Wednesday" },
+        { "name": "Vivian Girls" }
+      ]
+    },
+    {
+      "date": "2026-07-18",
+      "label": "Saturday, July 18",
+      "artists": [
+        { "name": "Iggy Pop", "headliner": true },
+        { "name": "Otoboke Beaver" },
+        { "name": "Scowl" },
+        { "name": "The Spits" },
+        { "name": "The Dirtbombs" },
+        { "name": "The Fadeaways" },
+        { "name": "Primitive Ring" }
+      ]
+    },
+    {
+      "date": "2026-07-19",
+      "label": "Sunday, July 19",
+      "artists": [
+        { "name": "Bikini Kill", "headliner": true },
+        { "name": "The Return of Jackie & Judy", "note": "Fred Armisen, Corin Tucker & Carrie Brownstein performing Ramones songs" },
+        { "name": "The Dead Milkmen" },
+        { "name": "Frankie and the Witch Fingers" },
+        { "name": "Frightwig" },
+        { "name": "Las Nubes" }
+      ]
+    }
+  ]
+}

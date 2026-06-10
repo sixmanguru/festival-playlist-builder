@@ -1,0 +1,43 @@
+{
+  "festival": "Blues From the Top",
+  "slug": "blues-from-the-top-2026",
+  "venue": "Rendezvous Event Center",
+  "city": "Winter Park, CO",
+  "dates": "June 26–28, 2026",
+  "status": "upcoming",
+  "genres": ["blues", "roots", "americana", "soul"],
+  "website": "https://bluesfromthetop.org",
+  "notes": "24th annual edition. Presented by Grand County Blues Society. Two stages: Main Stage and 'Check Out The Music' Side Stage (Electric Avenue vendor village, School of Rock + local acts). Benefits Blue Star Connection (music therapy for children's hospitals). Kids 12 & under free.",
+  "days": [
+    {
+      "date": "2026-06-26",
+      "label": "Friday, June 26",
+      "artists": [
+        { "name": "The Wood Brothers", "headliner": true },
+        { "name": "Marc Broussard" },
+        { "name": "Bywater Call" }
+      ]
+    },
+    {
+      "date": "2026-06-27",
+      "label": "Saturday, June 27",
+      "artists": [
+        { "name": "Kenny Wayne Shepherd", "headliner": true },
+        { "name": "Jimmie Vaughan & The Tilt-A-Whirl Band" },
+        { "name": "North Mississippi Allstars" },
+        { "name": "Bywater Call" },
+        { "name": "Tyron Benoit Band" }
+      ]
+    },
+    {
+      "date": "2026-06-28",
+      "label": "Sunday, June 28",
+      "artists": [
+        { "name": "Los Lobos", "headliner": true },
+        { "name": "Blind Boys of Alabama" },
+        { "name": "Southern Hospitality", "note": "feat. Damon Fowler, J.P. Soars, Victor Wainwright" },
+        { "name": "Vanessa Collier" }
+      ]
+    }
+  ]
+}

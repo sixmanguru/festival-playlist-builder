@@ -1,0 +1,72 @@
+{
+  "festival": "Green River Festival",
+  "slug": "green-river-festival-2026",
+  "venue": "Franklin County Fairgrounds",
+  "city": "Greenfield, MA",
+  "dates": "June 19–21, 2026",
+  "status": "completed",
+  "genres": ["indie rock", "roots", "americana", "soul", "punk", "folk"],
+  "website": "https://greenriverfestival.com",
+  "notes": "39th annual edition (milestone year). 3 stages. Camping and RV available. Saturday night balloon glow.",
+  "days": [
+    {
+      "date": "2026-06-19",
+      "label": "Friday, June 19",
+      "artists": [
+        { "name": "Charley Crockett", "headliner": true },
+        { "name": "The War and Treaty" },
+        { "name": "Southern Avenue" },
+        { "name": "Kashus Culpepper" },
+        { "name": "Swamp Dogg" },
+        { "name": "Sunny War" },
+        { "name": "Tré Burt" },
+        { "name": "Lila Iké" },
+        { "name": "Ruby Ibarra" },
+        { "name": "Brother Wallace" },
+        { "name": "She Returns From War" },
+        { "name": "Misty Blues" },
+        { "name": "Eavesdrop" },
+        { "name": "Kam Franklin" },
+        { "name": "Luke Tyler Shelton" }
+      ]
+    },
+    {
+      "date": "2026-06-20",
+      "label": "Saturday, June 20",
+      "artists": [
+        { "name": "Spoon", "headliner": true },
+        { "name": "The Beths" },
+        { "name": "Kurt Vile & The Violators" },
+        { "name": "Lucius" },
+        { "name": "Ratboys" },
+        { "name": "Folk Bitch Trio" },
+        { "name": "Sonido Gallo Negro" },
+        { "name": "PawPaw Rod" },
+        { "name": "Greg Freeman" },
+        { "name": "Fust" },
+        { "name": "Alex Amen" },
+        { "name": "Sally Baby's Silver Dollars" },
+        { "name": "Lily Seabird" },
+        { "name": "The Animeros" },
+        { "name": "Tunde Adebimpe" },
+        { "name": "LuxDeluxe" }
+      ]
+    },
+    {
+      "date": "2026-06-21",
+      "label": "Sunday, June 21",
+      "artists": [
+        { "name": "Geese", "headliner": true },
+        { "name": "Wednesday" },
+        { "name": "J Mascis" },
+        { "name": "Big Freedia" },
+        { "name": "Hurray for the Riff Raff" },
+        { "name": "Esther Rose" },
+        { "name": "The SteelDrivers" },
+        { "name": "June Millington" },
+        { "name": "Ken Pomeroy" },
+        { "name": "Splendid Torch" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "festival": "Cotton Fest",
+  "slug": "cotton-fest-2026",
+  "venue": "Cook's Garage",
+  "city": "Lubbock, TX",
+  "dates": "June 25–27, 2026",
+  "status": "upcoming",
+  "genres": ["texas country", "red dirt", "americana", "country rock"],
+  "website": "https://cottonfestlbk.com",
+  "notes": "Hosted by William Clark Green. BYOB. Proceeds benefit High Cotton Relief Fund (West Texas cotton community charity). Thursday is intimate acoustic 'Cotton Boll' pre-party. Day splits for main lineup not yet published.",
+  "days": [
+    {
+      "date": "2026-06-25",
+      "label": "Thursday, June 25",
+      "type": "pre-party",
+      "artists": [
+        { "name": "William Clark Green & Friends", "note": "Cotton Boll acoustic song swap — intimate set" }
+      ]
+    },
+    {
+      "date": "2026-06-26",
+      "label": "Friday, June 26",
+      "artists": []
+    },
+    {
+      "date": "2026-06-27",
+      "label": "Saturday, June 27",
+      "artists": []
+    }
+  ],
+  "artists_unscheduled": [
+    { "name": "Randy Rogers", "headliner": true },
+    { "name": "Flatland Cavalry", "headliner": true },
+    { "name": "William Clark Green", "headliner": true },
+    { "name": "Josh Abbott Band" },
+    { "name": "The Panhandlers" },
+    { "name": "William Beckmann" },
+    { "name": "John Baumann" },
+    { "name": "49 Winchester" },
+    { "name": "Aiden Logsdon" },
+    { "name": "Cameron Allbright" },
+    { "name": "Colton Mortensen" },
+    { "name": "Gatlin Johnson" },
+    { "name": "Cela Harper" },
+    { "name": "Della Rose" },
+    { "name": "Hank Weaver" },
+    { "name": "Dexter and The Moonrocks" },
+    { "name": "Tyce Delk" },
+    { "name": "Gannon Fremin & CCREV" },
+    { "name": "Haydon Wiginton" },
+    { "name": "Tristan Graves" },
+    { "name": "Lincoln Swanzy" },
+    { "name": "Dalton Torres" },
+    { "name": "Travis Roberts" },
+    { "name": "Ashton Naylor" },
+    { "name": "Tanner Lane" }
+  ]
+}

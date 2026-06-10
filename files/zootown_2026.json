@@ -1,0 +1,77 @@
+{
+  "festival": "Zootown Music Festival",
+  "slug": "zootown-2026",
+  "venue": "Missoula County Fairgrounds",
+  "city": "Missoula, MT",
+  "dates": "June 19–20, 2026",
+  "status": "completed",
+  "genres": ["indie", "folk", "americana", "roots", "rock"],
+  "website": "https://www.zootownfestival.com",
+  "notes": "Second annual edition. 60%+ of artists had never previously performed in Montana. The Chicks' first Montana show in 20+ years.",
+  "days": [
+    {
+      "date": "2026-06-19",
+      "label": "Friday, June 19",
+      "stages": {
+        "trailhead": [
+          { "name": "Samantha McKaige", "set_time": "2:30 PM" },
+          { "name": "North Fork Crossing", "set_time": "3:15 PM" },
+          { "name": "Joy Oladokun", "set_time": "4:20 PM" },
+          { "name": "The Head and The Heart", "set_time": "5:30 PM" },
+          { "name": "Rainbow Kitten Surprise", "set_time": "7:00 PM" },
+          { "name": "The Lumineers", "headliner": true, "set_time": "9:00 PM" }
+        ],
+        "lookout": [
+          { "name": "Jack Gladstone", "set_time": "2:00 PM" },
+          { "name": "Witch Post", "set_time": "2:50 PM" },
+          { "name": "Hey, Nothing", "set_time": "3:55 PM" },
+          { "name": "Bebe Stockwell", "set_time": "5:00 PM" },
+          { "name": "Hazlett", "set_time": "6:30 PM" },
+          { "name": "Built to Spill", "set_time": "8:00 PM" }
+        ]
+      },
+      "artists": [
+        { "name": "The Lumineers", "headliner": true },
+        { "name": "Rainbow Kitten Surprise" },
+        { "name": "The Head and The Heart" },
+        { "name": "Built to Spill" },
+        { "name": "Joy Oladokun" },
+        { "name": "Hazlett" },
+        { "name": "Bebe Stockwell" },
+        { "name": "Hey, Nothing" },
+        { "name": "North Fork Crossing" },
+        { "name": "Jack Gladstone" },
+        { "name": "Witch Post" },
+        { "name": "Samantha McKaige" }
+      ]
+    },
+    {
+      "date": "2026-06-20",
+      "label": "Saturday, June 20",
+      "stages": {
+        "trailhead": [
+          { "name": "Off in the Woods", "set_time": "2:00 PM" },
+          { "name": "Alec Shaw", "set_time": "2:55 PM" },
+          { "name": "Michael Marcagi", "set_time": "4:00 PM" },
+          { "name": "Trampled by Turtles", "set_time": "5:20 PM" },
+          { "name": "Tedeschi Trucks Band", "set_time": "6:50 PM" },
+          { "name": "The Chicks", "headliner": true, "set_time": "9:00 PM" }
+        ],
+        "lookout": []
+      },
+      "artists": [
+        { "name": "The Chicks", "headliner": true, "note": "First Montana show in 20+ years" },
+        { "name": "Tedeschi Trucks Band" },
+        { "name": "Trampled by Turtles" },
+        { "name": "Michael Marcagi" },
+        { "name": "Alec Shaw" },
+        { "name": "Off in the Woods" },
+        { "name": "BALTHVS" },
+        { "name": "Robert Randolph & The Family Band" },
+        { "name": "High Fade" },
+        { "name": "Neighbor" },
+        { "name": "P.E.S.T.", "note": "Jeff Ament (Pearl Jam) side project — special guest" }
+      ]
+    }
+  ]
+}

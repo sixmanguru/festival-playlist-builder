@@ -1,0 +1,65 @@
+{
+  "festival": "Governors Ball",
+  "slug": "governors-ball-2026",
+  "venue": "Flushing Meadows Corona Park",
+  "city": "Queens, NY",
+  "dates": "June 5–7, 2026",
+  "status": "completed",
+  "genres": ["indie", "hip-hop", "pop", "electronic", "alternative"],
+  "website": "https://governorsballmusicfestival.com",
+  "days": [
+    {
+      "date": "2026-06-05",
+      "label": "Friday, June 5",
+      "artists": [
+        { "name": "Lorde", "headliner": true },
+        { "name": "Baby Keem", "headliner": true },
+        { "name": "KATSEYE" },
+        { "name": "Mariah the Scientist" },
+        { "name": "Del Water Gap" },
+        { "name": "Audrey Hobert" },
+        { "name": "Whatmore" },
+        { "name": "School of Rock Queens" },
+        { "name": "The Backfires" },
+        { "name": "Old Mervs" },
+        { "name": "Absolutely" },
+        { "name": "Confidence Man" }
+      ]
+    },
+    {
+      "date": "2026-06-06",
+      "label": "Saturday, June 6",
+      "artists": [
+        { "name": "Stray Kids", "headliner": true },
+        { "name": "Kali Uchis", "headliner": true },
+        { "name": "Major Lazer" },
+        { "name": "Blood Orange" },
+        { "name": "Wet Leg" },
+        { "name": "Ravyn Lenae" },
+        { "name": "Spacey Jane" },
+        { "name": "Amyl and the Sniffers" },
+        { "name": "flowerovlove" },
+        { "name": "Jane Remover" },
+        { "name": "2hollis" },
+        { "name": "Snow Strippers" },
+        { "name": "Jimmyboy" },
+        { "name": "Jade LeMac" },
+        { "name": "Chanpan" }
+      ]
+    },
+    {
+      "date": "2026-06-07",
+      "label": "Sunday, June 7",
+      "artists": [
+        { "name": "A$AP Rocky", "headliner": true },
+        { "name": "Jennie (BLACKPINK)", "headliner": true },
+        { "name": "Japanese Breakfast" },
+        { "name": "Clipse" },
+        { "name": "Freddie Gibbs & The Alchemist" },
+        { "name": "Dominic Fike" },
+        { "name": "Slayyyter" },
+        { "name": "Hemlocke Springs" }
+      ]
+    }
+  ]
+}

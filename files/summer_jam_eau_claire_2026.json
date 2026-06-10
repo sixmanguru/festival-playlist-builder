@@ -1,0 +1,35 @@
+{
+  "festival": "Summer Jam",
+  "slug": "summer-jam-eau-claire-2026",
+  "venue": "Eau Claire Event District (Country Jam USA Festival Grounds)",
+  "city": "Eau Claire, WI",
+  "dates": "June 19–20, 2026",
+  "status": "completed",
+  "genres": ["classic rock", "pop", "country", "rock"],
+  "website": "https://www.visiteauclaire.com/events-and-festivals/annual-events/summer-jam/",
+  "notes": "Inaugural Summer Jam festival. Camping available.",
+  "days": [
+    {
+      "date": "2026-06-19",
+      "label": "Friday, June 19",
+      "artists": [
+        { "name": "Third Eye Blind", "headliner": true },
+        { "name": "The Wallflowers" },
+        { "name": "Blue Öyster Cult" },
+        { "name": "Starship ft. Mickey Thomas" },
+        { "name": "Six Figure Sunrise" }
+      ]
+    },
+    {
+      "date": "2026-06-20",
+      "label": "Saturday, June 20",
+      "artists": [
+        { "name": "Styx", "headliner": true },
+        { "name": "Bret Michaels" },
+        { "name": "Gin Blossoms" },
+        { "name": "Spin Doctors" },
+        { "name": "Violenta" }
+      ]
+    }
+  ]
+}

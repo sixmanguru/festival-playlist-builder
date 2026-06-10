@@ -1,0 +1,58 @@
+{
+  "festival": "We Belong Here Brooklyn",
+  "slug": "we-belong-here-brooklyn-2026",
+  "venue": "Brooklyn Army Terminal Waterfront",
+  "city": "Brooklyn, NY",
+  "dates": "June 19–21, 2026",
+  "status": "completed",
+  "genres": ["electronic", "house", "techno", "progressive house", "melodic house"],
+  "website": "https://www.webelonghere.world/brooklyn",
+  "notes": "First multi-stage edition. Two stages: 360 Stage (international headliners) and daily takeover stage (NYC collectives). Food by Smorgasburg. Fri 4–10 PM, Sat–Sun 3–10 PM.",
+  "days": [
+    {
+      "date": "2026-06-19",
+      "label": "Friday, June 19",
+      "artists": [
+        { "name": "KX5", "headliner": true, "note": "Kaskade & deadmau5 collaboration", "stage": "360 Stage" },
+        { "name": "Wax Motif", "stage": "360 Stage" },
+        { "name": "Shermanology", "stage": "360 Stage" },
+        { "name": "Luke Alexander", "stage": "360 Stage" },
+        { "name": "AQUTIE", "stage": "Takeover Stage", "note": "Aqutie Presents Pele Pele takeover" },
+        { "name": "Kevin Aviance", "stage": "Takeover Stage" },
+        { "name": "Zainab", "stage": "Takeover Stage" },
+        { "name": "Dennis Free", "stage": "Takeover Stage" }
+      ]
+    },
+    {
+      "date": "2026-06-20",
+      "label": "Saturday, June 20",
+      "artists": [
+        { "name": "Eli Brown", "headliner": true, "stage": "360 Stage" },
+        { "name": "Lane 8 b2b Sultan + Shepard", "headliner": true, "stage": "360 Stage" },
+        { "name": "Giolì & Assia", "stage": "360 Stage" },
+        { "name": "Stello b2b Coastlines", "stage": "360 Stage" },
+        { "name": "AceMo", "stage": "Takeover Stage", "note": "Raw Cuts takeover" },
+        { "name": "DJ Slink", "stage": "Takeover Stage" },
+        { "name": "DJ SWISHA", "stage": "Takeover Stage" },
+        { "name": "Bakke", "stage": "Takeover Stage" }
+      ]
+    },
+    {
+      "date": "2026-06-21",
+      "label": "Sunday, June 21",
+      "artists": [
+        { "name": "Above & Beyond", "headliner": true, "stage": "360 Stage" },
+        { "name": "Oliver Heldens", "headliner": true, "stage": "360 Stage" },
+        { "name": "Eli & Fur", "stage": "360 Stage" },
+        { "name": "Emmy Adelle", "stage": "360 Stage" },
+        { "name": "Boris", "stage": "Takeover Stage", "note": "Dance Here Now x Nervous Records takeover" },
+        { "name": "Oscar G", "stage": "Takeover Stage" },
+        { "name": "Mike Nervous", "stage": "Takeover Stage" },
+        { "name": "Benny Soto", "stage": "Takeover Stage" },
+        { "name": "Erez.jpg", "stage": "Takeover Stage" },
+        { "name": "gabby cocco", "stage": "Takeover Stage" },
+        { "name": "Shanty Mane", "stage": "Takeover Stage" }
+      ]
+    }
+  ]
+}

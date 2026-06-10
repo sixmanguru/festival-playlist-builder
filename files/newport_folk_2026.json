@@ -1,0 +1,73 @@
+{
+  "festival": "Newport Folk Festival",
+  "slug": "newport-folk-2026",
+  "venue": "Fort Adams State Park",
+  "city": "Newport, RI",
+  "dates": "July 24–26, 2026",
+  "status": "upcoming",
+  "genres": ["folk", "americana", "indie", "roots"],
+  "website": "https://newportfolk.org",
+  "notes": "Sold out. Lineup announced on rolling basis through July — more artists expected.",
+  "days": [
+    {
+      "date": "2026-07-24",
+      "label": "Friday, July 24",
+      "artists": [
+        { "name": "Hayley Williams & Friends", "headliner": true },
+        { "name": "Ms. Lauryn Hill", "headliner": true },
+        { "name": "Hot Tuna" },
+        { "name": "Fruit Bats" },
+        { "name": "Wednesday" },
+        { "name": "Courtney Barnett" },
+        { "name": "Courtney Marie Andrews" },
+        { "name": "Haley Heynderickx & Max García Conover" },
+        { "name": "Infinity Song" },
+        { "name": "Brother Wallace" },
+        { "name": "Amble" },
+        { "name": "Matt Quinn" },
+        { "name": "Hudson Freeman" },
+        { "name": "Michael Shannon with Jason Narducy & Friends" }
+      ]
+    },
+    {
+      "date": "2026-07-25",
+      "label": "Saturday, July 25",
+      "artists": [
+        { "name": "Gillian Welch & David Rawlings", "headliner": true, "note": "Grateful Dead Acoustic Reckoning set" },
+        { "name": "Vulfpeck", "headliner": true },
+        { "name": "Lizzy McAlpine" },
+        { "name": "Cat Power" },
+        { "name": "Punch Brothers" },
+        { "name": "The Barr Brothers" },
+        { "name": "Kirby" },
+        { "name": "Medium Build" },
+        { "name": "This Is Lorelei" },
+        { "name": "Yasmin Williams & William Tyler" },
+        { "name": "Ryan Davis & The Roadhouse Band" },
+        { "name": "Evan Honer" },
+        { "name": "Trousdale" },
+        { "name": "The Ollam" }
+      ]
+    },
+    {
+      "date": "2026-07-26",
+      "label": "Sunday, July 26",
+      "artists": [
+        { "name": "Brandi Carlile", "headliner": true },
+        { "name": "Tom Morello" },
+        { "name": "Kathleen Edwards" },
+        { "name": "CMAT" },
+        { "name": "Clover County" },
+        { "name": "Dove Ellis" },
+        { "name": "Tim Bernardes" },
+        { "name": "Brittany Davis & Black Thunder" },
+        { "name": "Searows" },
+        { "name": "Strongboi" },
+        { "name": "Ryan Davis & The Roadhouse Band" },
+        { "name": "Peter Rowan & Sam Grisman" },
+        { "name": "Sierra Hull" },
+        { "name": "Larry Campbell & Teresa Williams" }
+      ]
+    }
+  ]
+}
