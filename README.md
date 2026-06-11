@@ -9,8 +9,8 @@ Live at **[strangetrip.app](https://strangetrip.app)**
 
 1. **Land** — Psychedelic splash screen with Enter button
 2. **Login** — Spotify OAuth 2.0 PKCE (no backend, tokens stored in localStorage)
-3. **Filter** — Festival filter pills let you narrow to a single festival
-4. **Browse** — Home page shows festival day cards; click a day to see its lineup
+3. **Browse** — Home page shows festival day cards with date and city; **Upcoming / Archive** tabs separate future from past festivals; filter pills narrow to a single festival
+4. **Select a day** — Click a day card to see its full lineup
 5. **Select** — Expand an artist to load tracks, or use **Load All Artists** to pre-fetch everyone at once; once loaded a banner appears to **Select All Tracks** in one click
 6. **Create** — Name the playlist and click "Create Playlist" → appears in Spotify instantly
 7. **Request** — "Don't see your festival?" link opens a form to request a festival be added; requests are emailed via Cloudflare Pages Function + Resend
@@ -19,12 +19,23 @@ Live at **[strangetrip.app](https://strangetrip.app)**
 
 ## Current festivals
 
-- **Governors Ball 2026** — 3 days (Jun 5–7), New York NY
+- **Governors Ball 2026** — 3 days (Jun 5–7), Queens NY
 - **Bonnaroo 2026** — 4 days (Jun 11–14), Manchester TN
+- **Vans Warped Tour DC 2026** — Jun 13–14, Washington DC
 - **Telluride Bluegrass Festival 2026** — 4 days (Jun 18–21), Telluride CO
+- **Green River Festival 2026** — 3 days (Jun 19–21), Greenfield MA
+- **Red Wing Roots Music Festival 2026** — 3 days (Jun 19–21), Mount Solon VA
+- **Summer Jam 2026** — 2 days (Jun 19–20), Eau Claire WI
+- **We Belong Here Brooklyn 2026** — 3 days (Jun 19–21), Brooklyn NY
+- **Zootown Music Festival 2026** — 2 days (Jun 19–20), Missoula MT
+- **Cotton Fest 2026** — Jun 25–27, Lubbock TX
+- **Blues From the Top 2026** — 3 days (Jun 26–28), Winter Park CO
+- **Fitzgerald's American Music Festival 2026** — 4 days (Jul 2–5), Berwyn IL
+- **Willie Nelson's 4th of July Picnic 2026** — Jul 4, Austin TX
 - **Mosswood Meltdown 2026** — 3 days (Jul 17–19), Oakland CA
 - **Newport Folk Festival 2026** — 3 days (Jul 24–26), Newport RI
 - **Underground Music Showcase 2026** — Jul 24–26, Denver CO
+- **Levitation 2026** — 4 days (Sep 10–13), Austin TX
 - **Bourbon & Beyond 2026** — 4 days (Sep 24–27), Louisville KY
 
 ---
@@ -90,6 +101,7 @@ FestivalApp/
 ├── public/
 │   ├── _redirects               ← SPA catch-all for Cloudflare Pages
 │   └── strangetrip.png          ← masthead / landing page image
+├── files/                       ← source-of-truth JSON files, one per festival
 ├── functions/
 │   └── api/
 │       └── request-festival.js  ← Pages Function: receives festival requests, emails via Resend
@@ -99,7 +111,7 @@ FestivalApp/
 └── src/
     ├── App.jsx                  ← root component, landing → login → home → day view
     ├── data/
-    │   └── artists.js           ← festival lineup data (add new festivals here)
+    │   └── artists.js           ← FESTIVAL_DAYS array + FESTIVAL_META city lookup
     ├── auth/
     │   ├── pkce.js              ← PKCE crypto, dynamic redirect URI
     │   └── spotify-auth.js      ← token exchange, refresh, localStorage
@@ -113,7 +125,7 @@ FestivalApp/
         ├── LandingPage.jsx      ← splash screen with Enter button
         ├── Masthead.jsx         ← strangetrip.png header used on home page
         ├── LoginScreen.jsx
-        ├── FestivalHome.jsx     ← festival filter pills + day cards + request link
+        ├── FestivalHome.jsx     ← Upcoming/Archive tabs, filter pills, day cards, request link
         ├── RequestFestivalModal.jsx ← festival request form (festival, location, notify email)
         ├── Header.jsx           ← back button, festival name, logout
         ├── ArtistList.jsx       ← track limit, Load All, Select All Tracks banner
@@ -127,7 +139,9 @@ FestivalApp/
 
 ## Adding a new festival
 
-Edit `src/data/artists.js` and add a new entry to `FESTIVAL_DAYS`. Keep the array in chronological order.
+1. **Add a JSON file** to `files/` (use an existing one as a template). This is the source of truth.
+
+2. **Add entries to `FESTIVAL_DAYS`** in `src/data/artists.js`. Keep the array in chronological order. Use `"Weekday, Month Day"` for day dates; `"Month N–M"` for unscheduled all-days entries.
 
 ```js
 {
@@ -135,10 +149,16 @@ Edit `src/data/artists.js` and add a new entry to `FESTIVAL_DAYS`. Keep the arra
   festival: 'Festival Name',
   year: 2026,
   label: 'Day 1',
-  date: 'Friday, October 1',      // use "Weekday, Month Day" format
+  date: 'Friday, October 1',
   headliners: 'Headliner One & Headliner Two',
   artists: ['Artist Name', ...],
 }
+```
+
+3. **Add the city to `FESTIVAL_META`** in the same file:
+
+```js
+'Festival Name': { city: 'City, ST' },
 ```
 
 Push to GitHub — Cloudflare auto-deploys.
