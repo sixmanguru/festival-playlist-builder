@@ -14,13 +14,34 @@ export async function initiateLogin() {
   window.location.href = buildAuthURL(challenge)
 }
 
+let callbackInFlight = false
+
 export async function handleCallback() {
+  if (callbackInFlight) return
+  callbackInFlight = true
+
+  try {
+    return await _handleCallback()
+  } finally {
+    callbackInFlight = false
+  }
+}
+
+const SPOTIFY_ERROR_MESSAGES = {
+  access_denied: 'Access was denied — if this app is in development mode, your Spotify account may need to be added as a test user.',
+  invalid_client: 'App configuration error. Please contact the developer.',
+  invalid_grant: 'The login link expired or was already used. Please try logging in again.',
+}
+
+async function _handleCallback() {
   const params = new URLSearchParams(window.location.search)
   const code = params.get('code')
   const state = params.get('state')
   const error = params.get('error')
 
-  if (error) throw new Error(`Spotify auth error: ${error}`)
+  if (error) {
+    throw new Error(SPOTIFY_ERROR_MESSAGES[error] || `Spotify denied access: ${error}`)
+  }
   if (!code) throw new Error('No authorization code in callback URL')
 
   const storedState = localStorage.getItem('pkce_state')
@@ -47,7 +68,8 @@ export async function handleCallback() {
 
   if (!res.ok) {
     const err = await res.json().catch(() => ({}))
-    throw new Error(err.error_description || 'Token exchange failed')
+    const desc = err.error_description || err.error || 'Token exchange failed'
+    throw new Error(SPOTIFY_ERROR_MESSAGES[err.error] || desc)
   }
 
   const data = await res.json()

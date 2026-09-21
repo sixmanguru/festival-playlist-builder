@@ -22,7 +22,10 @@ export function useAuth() {
           setUser(u)
           setStatus('authenticated')
         } catch (err) {
-          setError(err.message)
+          const msg = err.message.includes('403')
+            ? 'Spotify returned 403 — your account may not be authorized to use this app. Contact the developer to be added as a test user.'
+            : err.message
+          setError(msg)
           setStatus('unauthenticated')
           window.history.replaceState({}, '', '/')
         }
